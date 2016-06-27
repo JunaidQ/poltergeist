@@ -210,6 +210,10 @@ module Capybara::Poltergeist
       end
     end
 
+    def maximize_window(handle)
+      resize_window_to(handle, *(options[:maximize_size] || [1366, 768]))
+    end
+
     def window_size(handle)
       within_window(handle) do
         evaluate_script('[window.innerWidth, window.innerHeight]')
